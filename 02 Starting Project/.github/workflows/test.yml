@@ -6,12 +6,12 @@ jobs:
     steps: 
       - name: Get code
         uses: actions/checkout@v3
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
+      - name: Install Python
+        uses: actions/setup-python@v4
         with:
-          node-version: 18
+          python-version: '3.11'
       - name: Install dependencies
-        run: npm install
+        run: pip install -r requirements.txt
       - name: Run tests
         run: npm test
   deploy:
@@ -20,12 +20,12 @@ jobs:
     steps: 
       - name: Get code
         uses: actions/checkout@v3
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
+      - name: Install Python
+        uses: actions/setup-python@v4
         with:
-          node-version: 18
+          python-version: '3.11'
       - name: Install dependencies
-        run: npm install
+        run:  pip install -r requirements.txt
       - name: Build project
         run: npm run-build
       - name: Deploy
